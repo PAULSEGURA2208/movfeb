@@ -1,0 +1,133 @@
+body {
+    margin: 0;
+    overflow: hidden;
+    background: linear-gradient(135deg, #1a0033 0%, #4b0082 100%);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 2rem;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    border: 1px solid #9370db;
+}
+
+.lila-text { color: #e0b0ff; text-shadow: 0 0 10px #9370db; }
+
+.timer {
+    font-size: 3rem;
+    font-weight: bold;
+    margin: 20px 0;
+    color: #fff;
+}
+
+button {
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button.disabled { background: #555; cursor: not-allowed; }
+button.active { background: #9370db; color: white; box-shadow: 0 0 15px #9370db; }
+
+/* Animación de Corazones y Destellos */
+.heart {
+    position: absolute;
+    color: rgba(255, 0, 100, 0.6);
+    user-select: none;
+    animation: float 6s linear infinite;
+}
+
+@keyframes float {
+    to { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+}
+
+.sparkle {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background: #e0b0ff;
+    border-radius: 50%;
+    pointer-events: none;
+    box-shadow: 0 0 10px #fff;
+}
+
+/* Dashboard Tulipanes */
+.sky { height: 40vh; background: linear-gradient(to bottom, #292cdd, #6a5acd); position: relative; }
+.hill {
+    height: 60vh;
+    background: linear-gradient(to bottom, #1b4d3e, #0a2e22);
+    position: relative;
+    perspective: 1000px;
+}
+.tulip-field {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    transform: rotateX(20deg);
+}
+
+/* --- Ajustes para móviles --- */
+@media (max-width: 600px) {
+    body {
+        flex-direction: column;
+        padding: 1rem;
+        height: auto; /* Permite scroll si es necesario */
+    }
+
+    .container {
+        width: 100%;
+        padding: 1rem;
+        border-radius: 15px;
+    }
+
+    .timer {
+        font-size: 2rem;
+        margin: 15px 0;
+    }
+
+    button {
+        width: 100%;
+        padding: 12px;
+        font-size: 1rem;
+        margin-top: 10px;
+    }
+
+    .sky {
+        height: 30vh; /* Menos alto en móviles */
+    }
+
+    .hill {
+        height: 50vh;
+    }
+
+    .tulip-field {
+        transform: rotateX(10deg); /* Menos inclinación para pantallas pequeñas */
+    }
+}
+
+/* --- Ajustes para pantallas muy pequeñas (ej. 400px) --- */
+@media (max-width: 400px) {
+    .timer {
+        font-size: 1.5rem;
+    }
+
+    button {
+        font-size: 0.9rem;
+        padding: 10px;
+    }
+
+    .container {
+        padding: 0.8rem;
+    }
+}
